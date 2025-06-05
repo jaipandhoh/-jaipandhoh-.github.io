@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="2style.css">
+</head>
+<body>
+    <header>
+        <h1>Turtle Project</h1>
+    </header>
+
+    <!-- Project Description -->
+    <section>
+        <h2>About the Project</h2>
+        <p>This project is about creating a graphical scene using Python’s Turtle graphics
+module. I used the provided building block functions (draw_rectangle,
+draw_triangle, draw_circle, draw_curve, pen_down functions, etc.) to create functions that 
+draw composite shapes for my jungle scene. I went back and refactored the code to use loops for a more organized and efficient way to add shapes to elaborate my scene.
+</p>
+    </section>
+
+    <!-- Code highlights -->
+    <section>
+        <h2>Sample Code</h2>
+        <p>
+            This function creates trees using multiple circles and rectangles. The parameters allow for flexible positioning and scaling:
+            <br><br>
+            • <strong>t</strong>: The turtle graphics object for drawing<br>
+            • <strong>x, y</strong>: Starting position coordinates for the trees<br>
+            • <strong>foliage_radius</strong>: Scale factor to make green part of trees larger or smaller<br>
+            • <strong>jump_to</strong>: Moves tree trunks to position below trees
+        </p>
+        
+        <div class="code-container">
+            <code><span class="keyword">def</span> <span class="function">draw_tree</span>(<span class="parameter">t</span>, <span class="parameter">x</span>, <span class="parameter">y</span>, <span class="parameter">foliage_radius</span>=<span class="string">30</span>):
+    <span class="comment">"""Draw a tree at a specific position. If y is negative, draw foliage as an oval."""</span>
+    <span class="function">jump_to</span>(<span class="parameter">t</span>, <span class="parameter">x</span>, <span class="parameter">y</span>)
+    <span class="keyword">if</span> <span class="parameter">y</span> &gt;= <span class="string">0</span>:
+        <span class="function">draw_circle</span>(<span class="parameter">t</span>, <span class="parameter">foliage_radius</span>, <span class="parameter">fill_color</span>=<span class="string">"forestgreen"</span>)
+    <span class="keyword">else</span>:
+        <span class="comment"># Draw an oval by stretching two semi‑circles</span>
+        <span class="parameter">t</span>.<span class="function">fillcolor</span>(<span class="string">"forestgreen"</span>)
+        <span class="parameter">t</span>.<span class="function">begin_fill</span>()
+        <span class="keyword">for</span> <span class="parameter">_</span> <span class="keyword">in</span> <span class="function">range</span>(<span class="string">2</span>):
+            <span class="parameter">t</span>.<span class="function">circle</span>(<span class="string">20</span>, <span class="string">90</span>)
+            <span class="parameter">t</span>.<span class="function">circle</span>(<span class="string">40</span>, <span class="string">90</span>)
+        <span class="parameter">t</span>.<span class="function">end_fill</span>()
+    <span class="comment"># Draw trunk slightly lower than foliage center</span>
+    <span class="function">jump_to</span>(<span class="parameter">t</span>, <span class="parameter">x</span> - <span class="string">5</span>, <span class="parameter">y</span> - <span class="string">0</span>)
+    <span class="function">draw_rectangle</span>(<span class="parameter">t</span>, <span class="string">10</span>, <span class="string">30</span>, <span class="parameter">fill_color</span>=<span class="string">"saddlebrown"</span>)
+            </code>
+            </div>
+    </section>
+        
+    <!-- the scene -->
+    <section>
+        <h2>Final Scene</h2>
+        <p>Here's the completed turtle graphics scene featuring many green trees with brown trunks, parrots on the branches, a sun with sun rays, and a body of water:</p>
+        
+        <div class="scene-container">
+            <img src="Turtlegraphic.png" alt="Turtle Graphics Scene - An array of trees with a boady of water, a sun, and two parrots on a branch" class="scene-image">
+        </div>
+        
+        <p class="scene-description">
+            The scene combines multiple composite shapes created from basic turtle graphics functions. The trees use circles, ovals, and rectangles and have specific positions as demonstrated above. It also uses the loop and vectorization technique shown above.
+            The parrots are made from overlapping circles and triangles in vibrant colors. The sun demonsrates the looping technique to create a sun with rays. Lastly, the water is represented by blue lines that go along the x axis on the page.
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Jai Pandhoh | University of Oregon</p>
+    </footer>
+</body>
+</html>
